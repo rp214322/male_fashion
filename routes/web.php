@@ -1,6 +1,11 @@
 <?php
 
+use App\Livewire\AboutComponent;
+use App\Livewire\CartComponent;
+use App\Livewire\ContactComponent;
 use App\Livewire\HomeComponent;
+use App\Livewire\ShopComponent;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +23,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',HomeComponent::class);
+Route::get('/',HomeComponent::class)->name('home');
+Route::get('/shop',ShopComponent::class)->name('shop');
+Route::get('/contact',ContactComponent::class)->name('contact');
+Route::get('/about',AboutComponent::class)->name('about');
+Route::get('/cart',CartComponent::class)->name('cart');
