@@ -1,10 +1,12 @@
 <?php
 
 use App\Livewire\AboutComponent;
+use App\Livewire\BlogComponent;
 use App\Livewire\CartComponent;
 use App\Livewire\ContactComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\ShopComponent;
+use App\Livewire\WatchlistComponent;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +30,5 @@ Route::get('/shop',ShopComponent::class)->name('shop');
 Route::get('/contact',ContactComponent::class)->name('contact');
 Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/cart',CartComponent::class)->name('cart');
+Route::get('/watchlist',WatchlistComponent::class)->name('watchlist');
+Route::get('/blog',BlogComponent::class)->name('blog');

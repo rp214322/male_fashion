@@ -115,7 +115,7 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="{{ asset('img/icon/heart') }}.png" alt=""></a>
+                        <a href="{{ route('watchlist') }}"><img src="{{ asset('img/icon/heart') }}.png" alt=""></a>
                         <a href="{{ route('cart') }}"><img src="{{ asset('img/icon/cart') }}.png" alt=""> <span>0</span></a>
                         <div class="price">₹0.00</div>
                     </div>
@@ -158,7 +158,7 @@
                         <ul>
                             <li><a href="{{ route('contact') }}">Contact Us</a></li>
                             <li><a href="#">Feedback</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="{{ route('blog') }}">Blog</a></li>
                             <li><a href="#">Return & Exchanges</a></li>
                         </ul>
                     </div>
