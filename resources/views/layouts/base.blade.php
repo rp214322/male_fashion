@@ -35,18 +35,30 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
-            <div class="offcanvas__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>INR <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>INR</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
+            @if(Auth::check())
+                            <div class="dropdown show">
+                                <a class="navbar-btn nav-button wow bounceInRight login dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {!! Auth::user()->name !!}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a href="{!! route('profile') !!}" class="dropdown-item">Profile</a><br>
+                                  <a href="{!! route('logout') !!}" class="dropdown-item" data-confirm="Are you sure want to logout?">Sign Out</a>
+                                </div>
+                            </div>
+                            @else
+                            <div class="header__top__links">
+                                <a href="{{ route('login') }}">Sign in</a>
+                                <a href="{{ route('faq') }}">FAQs</a>
+                            </div>
+                            <div class="header__top__hover">
+                                <span>INR <i class="arrow_carrot-down"></i></span>
+                                <ul>
+                                    <li>INR</li>
+                                    <li>EUR</li>
+                                    <li>USD</li>
+                                </ul>
+                            </div>
+                            @endif
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="{{ asset('img/icon/search.png') }}" alt=""></a>
@@ -73,9 +85,20 @@
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
+                            @if(Auth::check())
+                            <div class="dropdown show">
+                                <a class="navbar-btn nav-button wow bounceInRight login dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {!! Auth::user()->name !!}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a href="{!! route('profile') !!}" class="dropdown-item">Profile</a><br>
+                                  <a href="{!! route('logout') !!}" class="dropdown-item" data-confirm="Are you sure want to logout?">Sign Out</a>
+                                </div>
+                            </div>
+                            @else
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
+                                <a href="{{ route('login') }}">Sign in</a>
+                                <a href="{{ route('faq') }}">FAQs</a>
                             </div>
                             <div class="header__top__hover">
                                 <span>INR <i class="arrow_carrot-down"></i></span>
@@ -85,6 +108,7 @@
                                     <li>USD</li>
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

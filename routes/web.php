@@ -4,6 +4,7 @@ use App\Livewire\AboutComponent;
 use App\Livewire\BlogComponent;
 use App\Livewire\CartComponent;
 use App\Livewire\ContactComponent;
+use App\Livewire\FAQComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\ShopComponent;
 use App\Livewire\WatchlistComponent;
@@ -32,3 +33,14 @@ Route::get('/about',AboutComponent::class)->name('about');
 Route::get('/cart',CartComponent::class)->name('cart');
 Route::get('/watchlist',WatchlistComponent::class)->name('watchlist');
 Route::get('/blog',BlogComponent::class)->name('blog');
+Route::get('/faq',FAQComponent::class)->name('faq');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
