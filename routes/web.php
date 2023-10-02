@@ -35,12 +35,17 @@ Route::get('/watchlist',WatchlistComponent::class)->name('watchlist');
 Route::get('/blog',BlogComponent::class)->name('blog');
 Route::get('/faq',FAQComponent::class)->name('faq');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+//Admin
+Route::middleware(['auth:sanctum','verified'])->prefix('admin')->group(function(){
+
 });
